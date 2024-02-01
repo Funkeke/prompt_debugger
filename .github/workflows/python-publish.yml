@@ -25,19 +25,19 @@ jobs:
     - name: Build and Package for ${{ matrix.platform }}${{ matrix.arch }}
       run: |
         # 针对Windows的构建命令
-#        python setup.py sdist bdist_wheel
+        #        python setup.py sdist bdist_wheel
         pyinstaller -w -F main.py -n="prompt debugger" -i logo.png --clean
 
-#        # 针对macOS (Intel)的构建命令
-#        python -m pip install wheel
-#        pyinstaller -w -F main.py -n="prompt debugger" -i logo.png --clean
-#
-#        # 针对macOS (M1)的构建命令
-#        pyinstaller -w -F main.py -n="prompt debugger" -i logo.png --clean
-#
-#        # 针对macOS (M2)的构建命令
-#        pyinstaller -w -F main.py -n="prompt debugger" -i logo.png --clean
-#        # 注意：macOS (M1)和macOS (M2)可能需要使用特定版本的PyInstaller
+        #        # 针对macOS (Intel)的构建命令
+        #        python -m pip install wheel
+        #        pyinstaller -w -F main.py -n="prompt debugger" -i logo.png --clean
+        #
+        #        # 针对macOS (M1)的构建命令
+        #        pyinstaller -w -F main.py -n="prompt debugger" -i logo.png --clean
+        #
+        #        # 针对macOS (M2)的构建命令
+        #        pyinstaller -w -F main.py -n="prompt debugger" -i logo.png --clean
+        #        # 注意：macOS (M1)和macOS (M2)可能需要使用特定版本的PyInstaller
 
     # 上传生成的二进制文件到 artifacts 存储
     - name: Upload Artifacts
