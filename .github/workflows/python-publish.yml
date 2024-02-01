@@ -20,12 +20,16 @@ jobs:
           python-version: '3.10.0'
           architecture: "x64"
           cache: 'pip'
+
+      - name: Install Xcode Command Line Tools
+        run: |
+          xcode-select --install
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install --user -r requirements.txt
           echo "$HOME/.local/bin" >> $GITHUB_PATH
-          xcode-select --install
           # 添加其他依赖安装命令
       - name: Build and Package for ${{ matrix.platform }}${{ matrix.arch }}
         env:
