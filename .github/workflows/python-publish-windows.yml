@@ -1,4 +1,4 @@
-name: Multi-platform Build and Packaging
+name: Prompt Debugger Windows
 on:
   push:
     branches: [ main ]
