@@ -52,7 +52,7 @@ class Controller:
         dashscope.api_key = self.ui.tk_input_qwen_api_key_input.get()
         user_input = self.ui.tk_text_qwen_prompt_text.get("1.0", "end")
         mode_name = self.ui.tk_select_box_qwen_model_select.get()
-        top_p = self.ui.tk_input_qwen_tok_k_input.get()
+        top_p = self.ui.tk_input_qwen_top_p_input.get()
         temperature = self.ui.tk_input_qwen_temperature_input.get()
 
         response_generator = dashscope.Generation.call(

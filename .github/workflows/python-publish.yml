@@ -20,13 +20,6 @@ jobs:
           python-version: '3.10.0'
           architecture: "x64"
           cache: 'pip'
-
-      - name: Install Xcode Command Line Tools
-        run: |
-          # softwareupdate --install --all
-          #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          #brew upgrade archey
-
       - name: Install dependencies
         run: |
           pip install --upgrade pip
