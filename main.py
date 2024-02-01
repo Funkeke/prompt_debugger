@@ -7,5 +7,10 @@ from control import Controller as MainUIController
 app = MainWin(MainUIController())
 
 if __name__ == "__main__":
+    # import platform
+    # arch = platform.machine()
+    # print(f"当前系统架构为：{arch}")
+
     # 启动
     app.mainloop()
+
