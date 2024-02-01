@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        platform: [ macos-latest,macos-13 ]
+        platform: [ macos-latest,macos-13.1 ]
         arch: [ x86_64 ]
     runs-on: ${{ matrix.platform }}
     steps:
