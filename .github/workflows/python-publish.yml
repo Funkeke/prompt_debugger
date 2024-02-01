@@ -24,9 +24,11 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install --user -r requirements.txt
-          echo ":${HOME}/.local/bin">> $PATH
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
           # 添加其他依赖安装命令
       - name: Build and Package for ${{ matrix.platform }}${{ matrix.arch }}
+        env:
+          PATH: ${{ matrix.path }} # 设置环境变量
         run: |
           pyinstaller --noconfirm -w -F main.py -n="prompt debugger" -i logo.png --clean
       # 上传生成的二进制文件到 artifacts 存储
