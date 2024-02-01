@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, macos-arm64, macos-arm64e]
-        architecture: [x86_64, arm64, arm64e]
+        architecture: [x64, arm64, arm64e]
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.os }}${{ matrix.architecture }}
