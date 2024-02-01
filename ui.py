@@ -35,11 +35,11 @@ class WinGUI(Tk):
         self.tk_label_qwen_copyright_text = self.__tk_label_qwen_copyright_text(self.tk_tabs_llm_0)
         self.tk_label_zhipu_copyright_text = self.__tk_label_zhipu_copyright_text(self.tk_tabs_llm_1)
         self.tk_label_qwen_top_p_label = self.__tk_label_qwen_top_p_label(self.tk_tabs_llm_0)
-        self.tk_input_qwen_top_k_input = self.__tk_input_qwen_top_k_input(self.tk_tabs_llm_0)
+        self.tk_input_qwen_top_p_input = self.__tk_input_qwen_top_p_input(self.tk_tabs_llm_0)
         self.tk_label_qwen_temperature_label = self.__tk_label_qwen_temperature_label(self.tk_tabs_llm_0)
         self.tk_input_qwen_temperature_input = self.__tk_input_qwen_temperature_input(self.tk_tabs_llm_0)
         self.tk_label_zhipu_top_p_label = self.__tk_label_zhipu_top_p_label(self.tk_tabs_llm_1)
-        self.tk_input_zhipu_top_k_input = self.__tk_input_zhipu_top_k_input(self.tk_tabs_llm_1)
+        self.tk_input_zhipu_top_p_input = self.__tk_input_zhipu_top_p_input(self.tk_tabs_llm_1)
         self.tk_label_zhipu_temperature_label = self.__tk_label_zhipu_temperature_label(self.tk_tabs_llm_1)
         self.tk_input_zhipu_temperature_input = self.__tk_input_zhipu_temperature_input(self.tk_tabs_llm_1)
 
@@ -220,7 +220,7 @@ class WinGUI(Tk):
         label.place(relx=0.04, rely=0.17, relwidth=0.19, relheight=0.05)
         return label
 
-    def __tk_input_qwen_top_k_input(self, parent):
+    def __tk_input_qwen_top_p_input(self, parent):
         ipt = Entry(parent, )
         ipt.place(relx=0.04, rely=0.23, relwidth=0.46, relheight=0.05)
         return ipt
@@ -240,7 +240,7 @@ class WinGUI(Tk):
         label.place(relx=0.04, rely=0.17, relwidth=0.19, relheight=0.05)
         return label
 
-    def __tk_input_zhipu_top_k_input(self, parent):
+    def __tk_input_zhipu_top_p_input(self, parent):
         ipt = Entry(parent, )
         ipt.place(relx=0.04, rely=0.23, relwidth=0.46, relheight=0.05)
         return ipt

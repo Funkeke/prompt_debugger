@@ -23,7 +23,7 @@ class Controller:
         zhipu_api_key = self.ui.tk_input_zhipu_api_key_input.get()
         user_input = self.ui.tk_text_zhipu_prompt_text.get("1.0", "end")
         mode_name = self.ui.tk_select_box_zhipu_model_select.get()
-        top_k = self.ui.tk_input_zhipu_top_k_input.get()
+        top_p = self.ui.tk_input_zhipu_top_p_input.get()
         temperature = self.ui.tk_input_zhipu_temperature_input.get()
 
         self.ui.tk_text_zhipu_result_text.delete("1.0", 'end')  # 清空文本框内容
@@ -38,7 +38,7 @@ class Controller:
                      "content": user_input}
                 ],
                 stream=True,
-                top_k=top_k,
+                top_p=top_p,
                 temperature=temperature,
             )
             for chunk in response:
@@ -52,13 +52,13 @@ class Controller:
         dashscope.api_key = self.ui.tk_input_qwen_api_key_input.get()
         user_input = self.ui.tk_text_qwen_prompt_text.get("1.0", "end")
         mode_name = self.ui.tk_select_box_qwen_model_select.get()
-        top_k = self.ui.tk_input_qwen_tok_k_input.get()
+        top_p = self.ui.tk_input_qwen_tok_k_input.get()
         temperature = self.ui.tk_input_qwen_temperature_input.get()
 
         response_generator = dashscope.Generation.call(
             model=mode_name,
             prompt=user_input,
-            top_k=top_k,
+            top_p=top_p,
             temperature=temperature,
             stream=True,
         )
