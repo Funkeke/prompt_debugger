@@ -5,7 +5,6 @@ from ui import Win as MainWin
 from control import Controller as MainUIController
 
 os.environ['TK_SILENCE_DEPRECATION'] = '1'
-
 # 将窗口控制器 传递给UI
 app = MainWin(MainUIController())
 

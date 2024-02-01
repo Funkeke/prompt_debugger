@@ -31,7 +31,7 @@ jobs:
         env:
           PATH: ${{ matrix.path }} # 设置环境变量
         run: |
-          pyinstaller --noconfirm -w -F main.py -n="prompt debugger" -i logo.png --clean
+          pyinstaller --noconfirm -F main.py -n="prompt debugger" -i logo.png --clean
           # pyinstaller --onefile main.py
           # pyinstaller --specpath=/Users/runner/work/prompt_debugger/prompt_debugger/prompt_debugger.spec
           #pyinstaller --noconfirm --onefile --windowed --icon logo.png  -n="prompt debugger"  main.py
