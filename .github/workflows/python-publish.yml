@@ -6,19 +6,18 @@ on:
     branches: [main]
 
 jobs:
-  build-and-package:
-    runs-on: windows-latest
+  build:
     strategy:
       matrix:
-        os: [macos-latest, macos-arm64, macos-arm64e]
-        architecture: [x64, arm64, arm64e]
+        platform: [ubuntu-20.04, macos-latest, windows-latest]
+        arch: [x64]
+    runs-on: ${{ matrix.platform }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.os }}${{ matrix.architecture }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.13.0-alpha.2'
-        architecture: '${{ matrix.architecture }}' # Set architecture for macOS
+        python-version: '3.10.0'
     - name: Install dependencies
       run: |
         pip install --user -r requirements.txt
