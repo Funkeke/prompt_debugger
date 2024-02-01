@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        platform: [ macos-latest ]
+        platform: [ macos-12 ]
         arch: [ x86_64 ]
     runs-on: ${{ matrix.platform }}
     steps:
@@ -20,15 +20,7 @@ jobs:
           python-version: '3.10.0'
           architecture: "x64"
           cache: 'pip'
-      - name: Verify 'arch' command
-        run: arch
-      - name: Install Homebrew
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      - name: Install 'archer' with Homebrew
-        run: brew install archer
-
-      - name: Install dependencies packages
+      - name: 安装项目依赖包
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
@@ -37,7 +29,7 @@ jobs:
         env:
           PATH: ${{ matrix.path }} # 设置环境变量
         run: |
-          pyinstaller --noconfirm -w -F main.py -n="prompt debugger" -i logo.png --clean --target-architecture x86_64
+          pyinstaller --noconfirm --onefile --windowed --icon logo.png  -n="prompt debugger"  main.py
       # 上传生成的二进制文件到 artifacts 存储
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
