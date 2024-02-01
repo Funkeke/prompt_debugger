@@ -31,7 +31,8 @@ jobs:
         env:
           PATH: ${{ matrix.path }} # 设置环境变量
         run: |
-          pyinstaller prompt_debugger.spec
+          pyinstaller --onefile main.py
+          # pyinstaller --specpath=prompt_debugger.spec
           #pyinstaller --noconfirm --onefile --windowed --icon logo.png  -n="prompt debugger"  main.py
           #pyinstaller --noconfirm --onefile --hidden-import ui.py --hidden-import controller.py --noconsole -w --windowed -n="prompt debugger"  main.py
       # 上传生成的二进制文件到 artifacts 存储
