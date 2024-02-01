@@ -79,5 +79,3 @@ class Controller:
             self.ui.tk_input_zhipu_api_key_input.focus_set()
         else:
             self.ui.tk_input_qwen_api_key_input.focus_set()
-
-        print(self.ui.tk_tabs_llm.index(tab_index))
