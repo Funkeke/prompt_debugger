@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         platform: [ macos-latest ]
-        arch: [ x86_64 ]
+        arch: [ arm64 ]
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
