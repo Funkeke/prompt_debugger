@@ -20,6 +20,13 @@ jobs:
           python-version: '3.10.0'
           architecture: "x64"
           cache: 'pip'
+      - name: Verify 'arch' command
+        run: arch
+      - name: Install Homebrew
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - name: Install 'archey' with Homebrew
+        run: brew install archey
 
       - name: Install dependencies packages
         run: |
