@@ -120,6 +120,7 @@ class WinGUI(Tk):
 
     def __tk_text_qwen_prompt_text(self, parent):
         text = Text(parent)
+        text.pack()
         text.place(relx=0.04, rely=0.36, relwidth=0.93, relheight=0.18)
         return text
 
