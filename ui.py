@@ -206,12 +206,12 @@ class WinGUI(Tk):
         return label
 
     def __tk_label_qwen_copyright_text(self, parent):
-        label = Label(parent, text="阿里千问大模型测试©gnway 2024", anchor="center", )
+        label = Label(parent, text="阿里千问大模型测试© 2024", anchor="center", )
         label.place(relx=0.04, rely=0.94, relwidth=0.42, relheight=0.05)
         return label
 
     def __tk_label_zhipu_copyright_text(self, parent):
-        label = Label(parent, text="清华智谱大模型测试©gnway 2024", anchor="center", )
+        label = Label(parent, text="清华智谱大模型测试© 2024", anchor="center", )
         label.place(relx=0.04, rely=0.94, relwidth=0.42, relheight=0.05)
         return label
 
