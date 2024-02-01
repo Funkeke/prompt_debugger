@@ -21,14 +21,6 @@ jobs:
           architecture: "x64"
           cache: 'pip'
 
-      - name: Install Homebrew
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-      - name: Install 'arch' with Homebrew
-        run: |
-          brew install arch
-
       - name: Install dependencies packages
         run: |
           pip install --upgrade pip
