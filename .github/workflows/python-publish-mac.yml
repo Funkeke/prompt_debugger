@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         platform: [ macos-latest ]
-        arch: [ arm64 ]
+        arch: [ x86_64 ]
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
@@ -20,6 +20,15 @@ jobs:
           python-version: '3.10.0'
           architecture: "x64"
           cache: 'pip'
+
+      - name: Install Homebrew
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      - name: Install 'arch' with Homebrew
+        run: |
+          softwareupdate --install-rosetta
+          brew install arch
 
       - name: Install dependencies packages
         run: |
