@@ -32,7 +32,7 @@ jobs:
           PATH: ${{ matrix.path }} # 设置环境变量
         run: |
           #pyinstaller --noconfirm --onefile --windowed --icon logo.png  -n="prompt debugger"  main.py
-          pyinstaller --noconfirm --onefile -w --windowed -n="prompt debugger"  main.py
+          pyinstaller --noconfirm --onefile --noconsole -w --windowed -n="prompt debugger"  main.py
       # 上传生成的二进制文件到 artifacts 存储
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
