@@ -27,7 +27,7 @@ jobs:
 
       - name: Install 'arch' with Homebrew
         run: |
-          softwareupdate --install-rosetta
+          #softwareupdate --install-rosetta
           brew install arch
 
       - name: Install dependencies packages
