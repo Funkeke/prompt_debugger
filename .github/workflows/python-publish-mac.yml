@@ -25,9 +25,9 @@ jobs:
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-      - name: Install 'archey' with Homebrew
+      - name: Install 'arch' with Homebrew
         run: |
-          brew install archey
+          brew install arch
 
       - name: Install dependencies packages
         run: |
