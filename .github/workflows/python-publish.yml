@@ -22,7 +22,9 @@ jobs:
           cache: 'pip'
       - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip install --user -r requirements.txt
+          echo "::add-path::${HOME}/.local/bin"
           # 添加其他依赖安装命令
       - name: Build and Package for ${{ matrix.platform }}${{ matrix.arch }}
         run: |
