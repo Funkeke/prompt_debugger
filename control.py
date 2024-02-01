@@ -62,10 +62,9 @@ class Controller:
             temperature=temperature,
             stream=True,
         )
-        self.ui.tk_text_qwen_result_text.delete("1.0", 'end')  # 清空文本框内容
 
         for response in response_generator:
-
+            self.ui.tk_text_qwen_result_text.delete("1.0", 'end')  # 清空文本框内容
             if response.status_code == HTTPStatus.OK:
                 out_content = response.output
                 self.ui.tk_text_qwen_result_text.insert('end', out_content.text)  # 将结果写入文本框
