@@ -96,6 +96,7 @@ class WinGUI(Tk):
 
     def __tk_tabs_llm(self, parent):
         frame = Notebook(parent)
+        frame.pack()
         self.tk_tabs_llm_0 = self.__tk_frame_llm_0(frame)
         frame.add(self.tk_tabs_llm_0, text="千问")
         self.tk_tabs_llm_1 = self.__tk_frame_llm_1(frame)
