@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        platform: [ macos-latest, windows-latest ]
+        platform: [ windows-latest ]
         arch: [ x64 ]
     runs-on: ${{ matrix.platform }}
     steps:
@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Xcode Command Line Tools
         run: |
-          softwareupdate --install --all
+          # softwareupdate --install --all
           #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           #brew upgrade archey
 
