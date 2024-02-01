@@ -20,10 +20,6 @@ jobs:
           python-version: '3.10.0'
           architecture: "x64"
           cache: 'pip'
-      - name: Install Xcode Command Line Tools
-        run: |
-          Software Update
-          xcode-select --install
 
       - name: Install Homebrew
         run: |
