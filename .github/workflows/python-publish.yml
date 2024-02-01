@@ -1,39 +1,47 @@
-# This workflow will upload a Python Package using Twine when a release is created
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Upload Python Package
-
+name: Multi-platform Build and Packaging
 on:
-  release:
-    types: [published]
-
-permissions:
-  contents: read
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  deploy:
-
-    runs-on: ubuntu-latest
-
+  build-and-package:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        os: [macos-latest, macos-arm64, macos-arm64e]
+        architecture: [x86_64, arm64, arm64e]
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python
+    - name: Set up Python ${{ matrix.os }}${{ matrix.architecture }}
       uses: actions/setup-python@v3
       with:
         python-version: '3.x'
+        architecture: '${{ matrix.architecture }}' # Set architecture for macOS
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install build
-    - name: Build package
-      run: python -m build
-    - name: Publish package
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        pip install --user -r requirements.txt
+        # 添加其他依赖安装命令
+    - name: Build and Package for ${{ matrix.os }}${{ matrix.architecture }}
+      run: |
+        # 针对Windows的构建命令
+        python setup.py sdist bdist_wheel
+        
+        # 针对macOS (Intel)的构建命令
+        python -m pip install wheel
+        pyinstaller -w -F main.py -n="prompt debugger" -i logo.png --clean
+        
+        # 针对macOS (M1)的构建命令
+        pyinstaller -w -F main.py -n="prompt debugger" -i logo.png --clean
+        
+        # 针对macOS (M2)的构建命令
+        pyinstaller -w -F main.py -n="prompt debugger" -i logo.png --clean
+        # 注意：macOS (M1)和macOS (M2)可能需要使用特定版本的PyInstaller
+
+    # 上传生成的二进制文件到 artifacts 存储
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
       with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+        name: ${{ matrix.os }}-${{ matrix.architecture }}-binary
+        path: dist/
