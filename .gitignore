@@ -1,5 +1,5 @@
 ./env310
-*.spec
+#*.spec
 build/
 dist/
 tests/
