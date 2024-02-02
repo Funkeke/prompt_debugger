@@ -29,11 +29,9 @@ jobs:
           # brew install python-tk
           pip install -r requirements.txt
       - name: Build and Package for ${{ matrix.platform }}${{ matrix.arch }}
-        env:
-          PATH: ${{ matrix.path }} # 设置环境变量
         run: |
           pyinstaller --noconfirm -w -F main.py -n="prompt debugger" -i logo.png --clean
-          chmod +x dist/*
+          chmod +x dist/prompt debugger.app/Contents/MacOS/*
 
       # 上传生成的二进制文件到 artifacts 存储
       - name: Upload Artifacts
