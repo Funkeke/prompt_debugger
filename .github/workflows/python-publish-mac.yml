@@ -35,7 +35,7 @@ jobs:
         run: |
             echo "/usr/bin" >> $GITHUB_PATH
             ls $HOME/work/prompt_debugger/prompt_debugger/dist
-            chmod -R +x $HOME/work/prompt_debugger/prompt_debugger/dist/prompt_debugger/*
+            chmod -R +x $HOME/work/prompt_debugger/prompt_debugger/dist/prompt_debugger.app/*
 
       # 上传生成的二进制文件到 artifacts 存储
       - name: Upload Artifacts
