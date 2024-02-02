@@ -29,12 +29,13 @@ jobs:
           pip install -r requirements.txt
       - name: Build and Package for ${{ matrix.platform }}${{ matrix.arch }}
         run: |
-          pyinstaller --noconfirm -w -F main.py -n="prompt debugger" -i logo.png --clean
+          pyinstaller --noconfirm -w -F main.py -n="prompt_debugger" -i logo.png --clean
 
       - name: 调整目录权限
         run: |
             echo "/usr/bin" >> $GITHUB_PATH
-            chmod +x $HOME/work/prompt_debugger/prompt_debugger/dist/*
+            ls $HOME/work/prompt_debugger/prompt_debugger/dist
+            chmod -R +x $HOME/work/prompt_debugger/prompt_debugger/dist/prompt_debugger/*
 
       # 上传生成的二进制文件到 artifacts 存储
       - name: Upload Artifacts
