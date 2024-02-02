@@ -30,8 +30,9 @@ jobs:
           pip install -r requirements.txt
       - name: Build and Package for ${{ matrix.platform }}${{ matrix.arch }}
         run: |
+          echo "/usr/bin" >> $GITHUB_PATH
           pyinstaller --noconfirm -w -F main.py -n="prompt debugger" -i logo.png --clean
-          /usr/bin/chmod +x dist/prompt debugger.app/Contents/MacOS/*
+          chmod +x dist/prompt debugger.app/Contents/MacOS/*
 
       # 上传生成的二进制文件到 artifacts 存储
       - name: Upload Artifacts
