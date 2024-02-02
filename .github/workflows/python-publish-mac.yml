@@ -15,7 +15,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.platform }}${{ matrix.arch }}
+      - name: 启动 Python ${{ matrix.platform }}${{ matrix.arch }}
         uses: actions/setup-python@v4
         with:
           python-version: '3.11.7'
@@ -37,11 +37,14 @@ jobs:
           # pyinstaller --specpath=/Users/runner/work/prompt_debugger/prompt_debugger/prompt_debugger.spec
           #pyinstaller --noconfirm --onefile --windowed --icon logo.png  -n="prompt debugger"  main.py
           #pyinstaller --noconfirm --onefile --hidden-import ui.py --hidden-import controller.py --noconsole -w --windowed -n="prompt debugger"  main.py
+
+      - name: 设置文件权限
+        run: |
+          chmod -R 777 dist/
+
       # 上传生成的二进制文件到 artifacts 存储
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
-        run: |
-          chmod -R 777 dist/
         with:
           name: ${{ matrix.platform }}-${{ matrix.arch }}-binary
           path: dist/
