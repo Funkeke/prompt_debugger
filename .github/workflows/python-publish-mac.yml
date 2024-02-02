@@ -26,13 +26,12 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
           echo "/usr/bin" >> $GITHUB_PATH
           python3 -m pip install --upgrade pip
-          # brew install python-tk
           pip install -r requirements.txt
       - name: Build and Package for ${{ matrix.platform }}${{ matrix.arch }}
         run: |
           echo "/usr/bin" >> $GITHUB_PATH
           pyinstaller --noconfirm -w -F main.py -n="prompt debugger" -i logo.png --clean
-          chmod +x -R dist/*
+          chmod +x -R $HOME/prompt_debugger/prompt_debugger/dist/*
 
       # 上传生成的二进制文件到 artifacts 存储
       - name: Upload Artifacts
