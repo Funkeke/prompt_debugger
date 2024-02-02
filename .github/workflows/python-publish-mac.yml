@@ -10,8 +10,8 @@ jobs:
     strategy:
       matrix:
         #platform: [ macos-latest,macos-13,macos-11 ]
-        platform: [ macos-13,macos-latest ]
-        arch: [ x86_64 ]
+        platform: [ macos-latest ]
+        arch: [ x86_64,arm64 ]
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
@@ -33,14 +33,7 @@ jobs:
           PATH: ${{ matrix.path }} # 设置环境变量
         run: |
           pyinstaller --noconfirm -w -F main.py -n="prompt debugger" -i logo.png --clean
-          # pyinstaller --onefile main.py
-          # pyinstaller --specpath=/Users/runner/work/prompt_debugger/prompt_debugger/prompt_debugger.spec
-          #pyinstaller --noconfirm --onefile --windowed --icon logo.png  -n="prompt debugger"  main.py
-          #pyinstaller --noconfirm --onefile --hidden-import ui.py --hidden-import controller.py --noconsole -w --windowed -n="prompt debugger"  main.py
-
-      - name: 设置文件权限
-        run: |
-          chmod -R 777 dist/
+          chmod +x dist/*
 
       # 上传生成的二进制文件到 artifacts 存储
       - name: Upload Artifacts
