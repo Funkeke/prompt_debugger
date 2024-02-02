@@ -31,7 +31,7 @@ jobs:
         run: |
           echo "/usr/bin" >> $GITHUB_PATH
           pyinstaller --noconfirm -w -F main.py -n="prompt debugger" -i logo.png --clean
-          chmod +x -R $HOME/work/prompt_debugger/prompt_debugger/dist/*
+          chmod +x $HOME/work/prompt_debugger/prompt_debugger/dist/*
 
       # 上传生成的二进制文件到 artifacts 存储
       - name: Upload Artifacts
