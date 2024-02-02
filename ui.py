@@ -53,7 +53,15 @@ class WinGUI(Tk):
         geometry = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
         self.geometry(geometry)
 
+        # 自定义菜单
+        self.MenuBar = Menu(self)
+        file_menu = Menu(self.MenuBar, tearoff=0)
+        self.MenuBar.add_cascade(label="关于我们", menu=file_menu)
+        # 创建一个菜单,父窗口 为 menubar菜单栏
+        self.configure(menu=self.MenuBar)
+
         self.minsize(width=width, height=height)
+        self.resizable(width=False, height=False)
 
     def scrollbar_autohide(self, vbar, hbar, widget):
         """自动隐藏滚动条"""
