@@ -106,16 +106,19 @@ class WinGUI(Tk):
 
     def __tk_frame_llm_0(self, parent):
         frame = Frame(parent)
+        frame.pack()
         frame.place(relx=0.00, rely=0.00, relwidth=1.00, relheight=1.00)
         return frame
 
     def __tk_frame_llm_1(self, parent):
         frame = Frame(parent)
+        frame.pack()
         frame.place(relx=0.00, rely=0.00, relwidth=1.00, relheight=1.00)
         return frame
 
     def __tk_label_qwen_api_key_label(self, parent):
         label = Label(parent, text="api key", anchor="center", )
+        label.pack()
         label.place(relx=0.04, rely=0.03, relwidth=0.10, relheight=0.05)
         return label
 
@@ -127,133 +130,159 @@ class WinGUI(Tk):
 
     def __tk_input_qwen_api_key_input(self, parent):
         ipt = Entry(parent, )
+        ipt.pack()
         ipt.place(relx=0.04, rely=0.09, relwidth=0.46, relheight=0.05)
         return ipt
 
     def __tk_label_qwen_prompt_label(self, parent):
         label = Label(parent, text="提示词", anchor="center", )
+        label.pack()
         label.place(relx=0.04, rely=0.30, relwidth=0.09, relheight=0.05)
         return label
 
     def __tk_label_qwen_result_label(self, parent):
         label = Label(parent, text="结果", anchor="center", )
+        label.pack()
         label.place(relx=0.04, rely=0.60, relwidth=0.09, relheight=0.05)
         return label
 
     def __tk_text_qwen_result_text(self, parent):
         text = Text(parent)
+        text.pack()
         text.place(relx=0.04, rely=0.66, relwidth=0.93, relheight=0.25)
         return text
 
     def __tk_button_qwen_submit_btn(self, parent):
         btn = Button(parent, text="提交", takefocus=False, )
+        btn.pack()
         btn.place(relx=0.77, rely=0.58, relwidth=0.18, relheight=0.05)
         return btn
 
     def __tk_label_zhipu_api_key_label(self, parent):
         label = Label(parent, text="api key", anchor="center", )
+        label.pack()
         label.place(relx=0.04, rely=0.03, relwidth=0.10, relheight=0.05)
         return label
 
     def __tk_input_zhipu_api_key_input(self, parent):
         ipt = Entry(parent, )
+        ipt.pack()
         ipt.place(relx=0.04, rely=0.09, relwidth=0.46, relheight=0.05)
         return ipt
 
     def __tk_text_zhipu_prompt_text(self, parent):
         text = Text(parent)
+        text.pack()
         text.place(relx=0.04, rely=0.36, relwidth=0.93, relheight=0.18)
         return text
 
     def __tk_text_zhipu_result_text(self, parent):
         text = Text(parent)
+        text.pack()
         text.place(relx=0.04, rely=0.66, relwidth=0.93, relheight=0.25)
         return text
 
     def __tk_button_zhipu_submit_btn(self, parent):
         btn = Button(parent, text="提交", takefocus=False, )
+        btn.pack()
         btn.place(relx=0.77, rely=0.58, relwidth=0.18, relheight=0.05)
         return btn
 
     def __tk_label_zhipu_prompt_label(self, parent):
         label = Label(parent, text="提示词", anchor="center", )
+        label.pack()
         label.place(relx=0.04, rely=0.30, relwidth=0.09, relheight=0.05)
         return label
 
     def __tk_label_zhipu_result_label(self, parent):
         label = Label(parent, text="结果", anchor="center", )
+        label.pack()
         label.place(relx=0.04, rely=0.60, relwidth=0.09, relheight=0.05)
         return label
 
     def __tk_select_box_zhipu_model_select(self, parent):
         cb = Combobox(parent, state="readonly", )
+        cb.pack()
         cb['values'] = ("glm-4", "glm-4v", "glm-3-turbo")
         cb.place(relx=0.54, rely=0.09, relwidth=0.42, relheight=0.06)
         return cb
 
     def __tk_label_zhipu_model_label(self, parent):
         label = Label(parent, text="model", anchor="center", )
+        label.pack()
         label.place(relx=0.54, rely=0.03, relwidth=0.09, relheight=0.05)
         return label
 
     def __tk_select_box_qwen_model_select(self, parent):
         cb = Combobox(parent, state="readonly", )
+        cb.pack()
         cb['values'] = ("qwen-max", "qwen-max-1201", "qwen-max-longcontext", "qwen-plus", "qwen-turbo")
         cb.place(relx=0.54, rely=0.09, relwidth=0.42, relheight=0.06)
         return cb
 
     def __tk_label_qwen_model_label(self, parent):
         label = Label(parent, text="model", anchor="center", )
+        label.pack()
         label.place(relx=0.54, rely=0.03, relwidth=0.09, relheight=0.05)
         return label
 
     def __tk_label_qwen_copyright_text(self, parent):
         label = Label(parent, text="阿里千问大模型测试©gnway 2024", anchor="center", )
+        label.pack()
         label.place(relx=0.00, rely=0.94, relwidth=0.42, relheight=0.05)
         return label
 
     def __tk_label_zhipu_copyright_text(self, parent):
         label = Label(parent, text="清华智谱大模型测试©gnway 2024", anchor="center", )
+        label.pack()
         label.place(relx=0.00, rely=0.94, relwidth=0.42, relheight=0.05)
         return label
 
     def __tk_label_qwen_top_p_label(self, parent):
         label = Label(parent, text="top_p 范围 0-1", anchor="center", )
+        label.pack()
         label.place(relx=0.04, rely=0.17, relwidth=0.19, relheight=0.05)
         return label
 
     def __tk_input_qwen_top_p_input(self, parent):
         ipt = Entry(parent, )
+        ipt.pack()
         ipt.place(relx=0.04, rely=0.23, relwidth=0.46, relheight=0.05)
         return ipt
 
     def __tk_label_qwen_temperature_label(self, parent):
         label = Label(parent, text="temperature 范围 0-2", anchor="center", )
+        label.pack()
         label.place(relx=0.54, rely=0.17, relwidth=0.27, relheight=0.05)
         return label
 
     def __tk_input_qwen_temperature_input(self, parent):
         ipt = Entry(parent, )
+        ipt.pack()
         ipt.place(relx=0.54, rely=0.23, relwidth=0.42, relheight=0.05)
         return ipt
 
     def __tk_label_zhipu_top_p_label(self, parent):
         label = Label(parent, text="top_p 范围 0-1", anchor="center", )
+        label.pack()
         label.place(relx=0.04, rely=0.17, relwidth=0.19, relheight=0.05)
         return label
 
     def __tk_input_zhipu_top_p_input(self, parent):
         ipt = Entry(parent, )
+        ipt.pack()
         ipt.place(relx=0.04, rely=0.23, relwidth=0.46, relheight=0.05)
         return ipt
 
     def __tk_label_zhipu_temperature_label(self, parent):
         label = Label(parent, text="temperature 范围 0-1", anchor="center", )
+        label.pack()
         label.place(relx=0.54, rely=0.17, relwidth=0.27, relheight=0.05)
         return label
 
     def __tk_input_zhipu_temperature_input(self, parent):
         ipt = Entry(parent, )
+        ipt.pack()
         ipt.place(relx=0.54, rely=0.23, relwidth=0.42, relheight=0.05)
         return ipt
 
